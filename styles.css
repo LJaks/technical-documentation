@@ -1,29 +1,100 @@
 :root {
   --fc1: #ffffff;
-  --fc2: rgb(0, 132, 180);
-  --bc-form: rgb(0, 172, 237);
-  --bc-main: #eef2f7;
+  --fc2: rgb(0, 172, 237);
+  --bc-nav-h: rgb(59, 89, 152);
+  --bc-nav: rgb(0, 132, 180);
+  --bc-main: #b2c8e285;
 
   --ff: "Montserrat", sans-serif;
   --fs: 20px;
 }
-html,
-body {
+html {
   margin: 0;
-  width: auto;
+  padding: 0;
 }
-
+body {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  background: var(--bc-main);
+  font-family: var(--ff);
+}
+main {
+  margin: 20px;
+  margin-left: 30%;
+  width: 70%;
+}
 code {
-  display: block;
-  text-align: left;
-  white-space: pre-line;
-  position: relative;
-  word-break: normal;
-  word-wrap: normal;
+  display: flex;
+  flex-direction: column;
   line-height: 2;
   background-color: black;
-  color: white;
+  color: var(--fc2);
   padding: 15px;
-  margin: 10px;
   border-radius: 5px;
+}
+#navbar {
+  position: fixed;
+  width: 25%;
+  height: 100%;
+  background: var(--bc-nav);
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+#navbar header {
+  color: black;
+  font-size: 30px;
+  margin: 40px 10px;
+  text-align: center;
+  font-weight: 700;
+}
+#navbar ul {
+  padding: 0;
+}
+#navbar li {
+  font-size: 25px;
+  list-style: none;
+  width: 100%;
+}
+
+#navbar a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: ease-in 0.5s;
+}
+#navbar a:hover {
+  background: var(--bc-main);
+  border-left: 5px solid var(--bc-nav-h);
+}
+.main-section {
+  padding: 20px;
+  padding-top: 0;
+}
+@media screen and (max-width: 1000px) {
+  #navbar header {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  #navbar li {
+    font-size: 20px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
+  #navbar {
+    position: relative;
+    width: 100%;
+  }
+
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
 }
